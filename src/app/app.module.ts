@@ -19,12 +19,13 @@ import { ChangePassComponent } from './login/change-pass/change-pass.component';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
+  { path: 'home', component: AppComponent },
   { path: 'login',component:LoginComponent},
   { path: 'price',component:PricesetComponent , canActivate: [AuthguardService]},
   { path: 'items',component:ItemListComponent , canActivate: [AuthguardService]},
   { path: 'change',component:ChangePassComponent, canActivate: [AuthguardService] },
-  { path: 'main',component:MainMenuComponent, canActivate: [AuthguardService] }
- 
+  { path: 'main',component:MainMenuComponent, canActivate: [AuthguardService] },
+  {path: '**', redirectTo: 'home'}
 ];
 
 @NgModule({
