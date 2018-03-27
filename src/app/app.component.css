@@ -1,0 +1,15 @@
+ #gridContainer {
+    width: 100%;
+}
+.navbar-brand-name > {
+  padding-top: 15px;
+  display: inline-block;
+  float: left;
+}
+
+.name {
+  font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, cursive;
+ 
+  padding-top: 10px;
+  padding-left: 20px;
+}

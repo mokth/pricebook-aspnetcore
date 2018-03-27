@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">PRICE BOOK</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li *ngIf="isAuthenticate()" class="nav-item active">
+        <a class="nav-link" routerLink="/price">Price Set</a>
+      </li>
+      <li *ngIf="isAuthenticate()" class="nav-item active">
+        <a class="nav-link" routerLink="/items">Master Items</a>
+      </li>
+      <li *ngIf="!isAuthenticate()" class="nav-item active">
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>
+      <li *ngIf="isAuthenticate()" class="nav-item active">
+        <a class="nav-link" routerLink="/change">Change Pass</a>
+      </li>
+      <li *ngIf="isAuthenticate()" class="nav-item active">
+        <a class="nav-link" (click)="OnLogout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

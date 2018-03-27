@@ -1,0 +1,122 @@
+<div class="entryfrom" >
+  <form [formGroup]="searhForm" novalidate>
+    <div class="form-row">
+      <div class="col">
+        <input type="date" class="form-control" 
+         formControlName="pricedate" name="pricedate"
+         placeholder="Date">
+      </div>
+      <div class="col">
+        <select class="custom-select form-control" formControlName="pricegrp" placeholder="Group">
+          <option *ngFor="let set of prcset" [value]="set.prcid">{{set.prcname}}</option>
+        </select>
+      </div>
+      <div class="col">
+        <button type="button" (click)="OnLoadPrice()" class="btn btn-success col">LOAD</button>
+      </div>
+    </div>
+  </form>
+  <hr>
+  <div [formGroup]="orderForm">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col-8 btn-primary">
+            ITEM CODE
+          </div>
+          <div class="col-4 btn-primary">
+            PRICE
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col-8 btn-primary">
+            ITEM CODE
+          </div>
+          <div class="col-4 btn-primary">
+            PRICE
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div formArrayName="items" *ngFor="let item of formData.controls; let i = index;odd as isodd;even as iseven">
+          <div [formGroupName]="i" *ngIf="iseven">
+            <div class="row">
+              <div class="col-8  form-control-plaintext" >
+                  {{item.get('no').value}}. {{item.get('name').value}} 
+              </div>
+              <div class="col" *ngIf="false"> 
+                <input class="form-control-plaintext  text-uppercase" formControlName="name" placeholder="Item description" readonly>
+              </div> 
+              <div class="col-4">
+                <input type="number" class="form-control" formControlName="price" placeholder="Item price">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div formArrayName="items" *ngFor="let item of formData.controls; let i = index;odd as isodd;even as iseven">
+          <div [formGroupName]="i" *ngIf="isodd">
+            <div class="row">
+                <div class="col-8  form-control-plaintext" >
+                    {{item.get('no').value}}. {{item.get('name').value}} 
+                </div>
+                <div class="col" *ngIf="false"> 
+                  <input class="form-control-plaintext  text-uppercase" formControlName="name" placeholder="Item description" readonly>
+                </div> 
+              <!-- <div class="col">
+                <input class="form-control-plaintext  text-uppercase" formControlName="name" placeholder="Item description" readonly>
+              </div> -->
+              <div class="col-4">
+                <input type="number" class="form-control" formControlName="price" placeholder="Item price">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-success btn-block" (click)="OnSave()">SAVE</button>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-danger btn-block" (click)="OnCancel()">CANCEL</button>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col">
+        <p class="text-danger font-italic">{{message}}</p>
+      </div>
+  </div>
+</div>
+
+<button id="openModalButton" [hidden]="true" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">MESSAGE</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="text-danger font-italic">{{message}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
