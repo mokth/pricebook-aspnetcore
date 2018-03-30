@@ -75,10 +75,13 @@ export class PricesetComponent implements OnInit {
          this.priceset = resp.json();
          console.log(this.priceset);
          this.priceset.forEach(itm=>{
-              let found = this.itemlist.find(entry=> entry.code===itm.code);
+              let found = this.itemlist.find(entry=> entry.prodid===itm.prodid);
               if (found){
                   found.price= itm.unitprice;  
-                  console.log(found.price);             
+                 // console.log(found.price);             
+              }else
+              {
+                 console.log('not found...'+itm.code+" "+itm.codename)                
               }
             // fitems.push(this.createItem(itm));
            });
