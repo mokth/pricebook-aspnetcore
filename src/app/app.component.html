@@ -12,6 +12,9 @@
       <li *ngIf="isAuthenticate()" class="nav-item active">
         <a class="nav-link" routerLink="/items">Master Items</a>
       </li>
+      <li *ngIf="isAuthenticate()" class="nav-item active">
+        <a class="nav-link" routerLink="/prcset">Price ID</a>
+      </li>
       <li *ngIf="!isAuthenticate()" class="nav-item active">
         <a class="nav-link" routerLink="/login">Login</a>
       </li>

@@ -15,6 +15,7 @@ import { PricesetComponent } from './priceset/priceset/priceset.component';
 import { ModelServices } from './services/model-services.service';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ChangePassComponent } from './login/change-pass/change-pass.component';
+import { PriceIdComponent } from './price-id/price-id.component';
 
 
 const appRoutes: Routes = [
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
   { path: 'items',component:ItemListComponent , canActivate: [AuthguardService]},
   { path: 'change',component:ChangePassComponent, canActivate: [AuthguardService] },
   { path: 'main',component:MainMenuComponent, canActivate: [AuthguardService] },
+  { path: 'prcset',component:PriceIdComponent, canActivate: [AuthguardService] },
   {path: '**', redirectTo: 'home'}
 ];
 
@@ -36,6 +38,7 @@ const appRoutes: Routes = [
     PricesetComponent,
     ItemListComponent,
     ChangePassComponent,
+    PriceIdComponent,
  
   ],
   imports: [

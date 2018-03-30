@@ -12,13 +12,14 @@ import { ModelServices } from './services/model-services.service';
 })
 export class AppComponent implements OnInit {
   title:string ;
+  isLogon:boolean;
   constructor(private auth:AuthserviceService,
              private router: Router){
     if (auth.isAuthenticated()){
         router.navigate(['/price']);
     }else router.navigate(['/login']);
   }
-  isLogon:boolean;
+  
 
   ngOnInit() {
    

@@ -44,7 +44,7 @@
     <div class="row">
       <div class="col">
         <div formArrayName="items" *ngFor="let item of formData.controls; let i = index;odd as isodd;even as iseven">
-          <div [formGroupName]="i" *ngIf="iseven">
+          <div [formGroupName]="i" *ngIf="getRightSideStarNum()>i">
             <div class="row">
               <div class="col-8  form-control-plaintext" >
                   {{item.get('no').value}}. {{item.get('name').value}} 
@@ -61,7 +61,7 @@
       </div>
       <div class="col">
         <div formArrayName="items" *ngFor="let item of formData.controls; let i = index;odd as isodd;even as iseven">
-          <div [formGroupName]="i" *ngIf="isodd">
+          <div [formGroupName]="i" *ngIf="i >= getRightSideStarNum()">
             <div class="row">
                 <div class="col-8  form-control-plaintext" >
                     {{item.get('no').value}}. {{item.get('name').value}} 

@@ -21,6 +21,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.isLogon = this.auth.isAuthenticated();
+    if (this.isLogon){
+       this.router.navigate(['/price']);
+    }
     this.auth.authChanged.subscribe(
         (x)=>{
                 this.isLogon = x;

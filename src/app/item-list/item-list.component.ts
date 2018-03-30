@@ -20,4 +20,8 @@ export class ItemListComponent implements OnInit {
   OnCancel(){
     this.router.navigate(['/main']);
   }
+
+  getStatus(status:number):string{
+    return (status==0)?"ACTIVE":"INAVTIVE";
+  }
 }

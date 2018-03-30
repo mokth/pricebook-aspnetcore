@@ -2,8 +2,8 @@ import { PriceSet, PrcSet } from './../model/model';
 import { Injectable, Inject } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { AuthserviceService } from '../authservice.service';
-import { Prod } from '../model';
-import { ItemEntry, PriceDetail } from 'app/model/model';
+import { Prod, ItemEntry } from '../model';
+
 
 @Injectable()
 export class ModelServices {
@@ -80,6 +80,17 @@ export class ModelServices {
     //console.log(this.apiUrl + 'api/Price/priceset');
     let body: string = JSON.stringify(priset);
     return this.http.post(this.apiUrl + 'api/Price/priceset',
+                          body,{ headers: headers });
+     
+  }
+
+  postPriceId(prcIds:PrcSet[]) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', this.auth.getAuthToken());
+    //console.log(this.apiUrl + 'api/Price/priceset');
+    let body: string = JSON.stringify(prcIds);
+    return this.http.post(this.apiUrl + 'api/Price/priceid',
                           body,{ headers: headers });
      
   }

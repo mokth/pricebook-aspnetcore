@@ -5,7 +5,7 @@ export class Prod{
     public prodgroup:string;
     public lastuser:string;
     public modifieddate:Date;
-
+    public status:number;
     constructor(){
     }
 }

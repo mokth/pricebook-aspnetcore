@@ -100,6 +100,14 @@ export class PricesetComponent implements OnInit {
       count++;
      });
   }
+  
+ isEven(n):boolean {
+    return n % 2 == 0;
+ }
+ 
+ isOdd(n):boolean {
+    return Math.abs(n % 2) == 1;
+ }
   createSearchForm() {
      this.searhForm = this.formBuilder.group({
       pricedate: new Date().toISOString().substring(0, 10),
@@ -181,5 +189,12 @@ export class PricesetComponent implements OnInit {
       let s = num+"";
       while (s.length < size) s = "0" + s;
       return s;
+  }
+
+  getRightSideStarNum():number{
+    let fitems = this.orderForm.get('items') as FormArray;    
+    let div = Math.trunc(fitems.length/2);
+    let rem = fitems.length % 2;
+    return div+rem;
   }
 }
